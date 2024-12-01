@@ -1,14 +1,13 @@
 import { ReactNode } from 'react';
+
 import {
   AppShell,
   Box,
-  ColorSchemeScript,
-  MantineProvider,
   useMantineTheme,
 } from '@mantine/core';
-import HeaderNav from '@/layout/Guest/HeaderNav/HeaderNav';
-import FooterNav from '@/layout/Guest/FooterNav/FooterNav';
 import { useHeadroom } from '@mantine/hooks';
+
+import HeaderNav from '@/layout/Guest/HeaderNav/HeaderNav';
 
 type GuestLayoutProps = {
   children: ReactNode;
@@ -28,7 +27,6 @@ function GuestLayout({ children }: GuestLayoutProps) {
           <Box style={{ backgroundColor: theme.colors.gray[0] }}>
             {children}
           </Box>
-          <FooterNav />
         </AppShell.Main>
       </AppShell>
     </>

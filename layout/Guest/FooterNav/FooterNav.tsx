@@ -1,7 +1,6 @@
 import {
   ActionIcon,
   ActionIconProps,
-  Button,
   Container,
   Divider,
   Flex,
@@ -10,7 +9,6 @@ import {
   Text,
   Title,
 } from '@mantine/core';
-import { Logo } from '@/components';
 import {
   IconBrandFacebook,
   IconBrandGithub,
@@ -19,8 +17,9 @@ import {
   IconBrandTwitter,
   IconWorld,
 } from '@tabler/icons-react';
-import { useMediaQuery } from '@mantine/hooks';
-import { PATH_DOCS } from '@/routes';
+
+import { Logo } from '@/components';
+
 import classes from './FooterNav.module.css';
 
 const ICON_SIZE = 18;
@@ -32,8 +31,6 @@ const ACTION_ICON_PROPS: ActionIconProps = {
 };
 
 const FooterNav = () => {
-  const mobile_match = useMediaQuery('(max-width: 425px)');
-
   return (
     <footer className={classes.footer}>
       <Container fluid mb="xl">

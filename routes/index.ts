@@ -11,7 +11,6 @@ const ROOTS_INVOICES = '/invoices';
 const ROOTS_TASKS = '/tasks';
 const ROOTS_CALENDAR = '/calendar';
 const ROOTS_AUTH = '/authentication';
-const ROOTS_ERRORS = '/error';
 const ROOTS_CHANGELOG = '/changelog';
 const ROOTS_AUTH_PROVIDERS = '/authProviders';
 const ROOTS_ABOUT = '/pages/about';
