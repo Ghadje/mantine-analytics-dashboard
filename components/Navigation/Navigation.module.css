@@ -1,5 +1,5 @@
 .navbar {
-    background-color: var(--mantine-primary-color-filled);
+    background-color: rgb(249, 115, 22);
     min-height: rem(100vh);
     width: rem(300px);
     padding: var(--mantine-spacing-md);
@@ -12,7 +12,7 @@
     );
 
     @mixin light {
-        background-color: var(--mantine-primary-color-filled);
+        background-color: rgb(249, 115, 22);
     }
 
     @mixin dark {

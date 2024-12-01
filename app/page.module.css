@@ -21,7 +21,7 @@
 }
 
 .highlight {
-  color: var(--mantine-primary-color-filled);
+  color: rgb(249, 115, 22);
 }
 
 .stackControl {
@@ -80,7 +80,7 @@
 }
 
 .statsTitle {
-  color: var(--mantine-primary-color-filled);
+  color: rgb(249, 115, 22);
 }
 
 .contactPaper {

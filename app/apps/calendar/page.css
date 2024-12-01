@@ -4,15 +4,15 @@
 .fc-event-main,
 .fc-v-event,
 .fc-h-event {
-  background-color: var(--mantine-primary-color-filled);
-  border-color: var(--mantine-primary-color-filled);
+  background-color: rgb(249, 115, 22);
+  border-color: rgb(249, 115, 22);
 }
 
 .fc-button {
   text-transform: capitalize !important;
   font-weight: 600;
-  background-color: var(--mantine-primary-color-filled) !important;
-  border-color: var(--mantine-primary-color-filled) !important;
+  background-color: rgb(249, 115, 22) !important;
+  border-color: rgb(249, 115, 22) !important;
 }
 
 .fc .fc-button-primary:hover {

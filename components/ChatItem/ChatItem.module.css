@@ -14,7 +14,7 @@
   color: --var(--mantine-color-white);
 
   @mixin light {
-    background-color: var(--mantine-primary-color-filled);
+    background-color: rgb(249, 115, 22);
   }
 
   @mixin dark {

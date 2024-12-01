@@ -18,7 +18,7 @@
 
     @mixin light {
       background-color: var(--mantine-color-white);
-      color: var(--mantine-primary-color-filled);
+      color: rgb(249, 115, 22);
     }
 
     @mixin dark {
@@ -32,7 +32,7 @@
     &:hover {
       @mixin light {
         background-color: var(--mantine-color-white);
-        color: var(--mantine-primary-color-filled);
+        color: rgb(249, 115, 22);
       }
 
       @mixin dark {
@@ -65,7 +65,7 @@
 
     @mixin light {
       background-color: var(--mantine-color-white);
-      color: var(--mantine-primary-color-filled);
+      color: rgb(249, 115, 22);
     }
 
     @mixin dark {

@@ -21,20 +21,16 @@ import classes from './HeaderNav.module.css';
 
 const MOCK_DATA = [
   {
-    link: 'https://652579e5b7998a00083d022b--mantine-analytics-dashboard.netlify.app/',
-    label: 'Version 1',
+    link: 'https://iris.dz/',
+    label: 'Welcome',
   },
   {
-    link: 'https://6564d1b09deea091e3ec0769-jsxuvbmjcr.chromatic.com/?path=/docs/welcome--docs',
-    label: 'components',
+    link: 'https://iris.dz/about_EN',
+    label: 'À propos',
   },
   {
-    link: 'mailto:kelvin.kiprop96@gmail.com',
-    label: 'support',
-  },
-  {
-    link: PATH_DOCS.root,
-    label: 'documentation',
+    link: 'https://iris.dz/contact',
+    label: 'Contact',
   },
 ];
 
@@ -64,24 +60,6 @@ const HeaderNav = () => {
           <Logo style={{ color: theme.white }} />
           <Group gap="xs" className={classes.links}>
             {items}
-            <Button
-              component="a"
-              target="_blank"
-              href={PATH_GITHUB.repo}
-              variant="transparent"
-              c="white"
-              leftSection={<IconBrandGithub size={16} />}
-              className={classes.link}
-            >
-              Give us a star
-            </Button>
-            <Button
-              component={Link}
-              href={PATH_AUTH.signin}
-              leftSection={<IconPlayerPlay size={16} />}
-            >
-              Live Preview
-            </Button>
           </Group>
           <Burger
             opened={drawerOpened}
