@@ -52,11 +52,11 @@ export default function Home() {
                 </Title>
                 <Group my="lg">
                   <Button
-                    className='bg-orange-500'
                     component={Link}
                     href={PATH_AUTH.signin}
                     size="md"
                     rightSection={<IconPlayerPlay size={18} />}
+                    color="ocean-orange"
                   >
                     Se connecter
                   </Button>
