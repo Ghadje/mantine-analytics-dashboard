@@ -58,7 +58,7 @@ export default function Home() {
                     rightSection={<IconPlayerPlay size={18} />}
                     color="ocean-orange"
                   >
-                    Se connecter
+                    Commencer
                   </Button>
                 </Group>
               </Stack>

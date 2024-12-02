@@ -2,38 +2,43 @@
 
 import {
   Button,
-  Center,
-  Checkbox,
-  Group,
+  // Center,
+  // Checkbox,
+  // Group,
   Paper,
   PasswordInput,
   Text,
   TextInput,
-  TextProps,
+  // TextProps,
   Title,
 } from '@mantine/core';
-import Link from 'next/link';
-import { PATH_AUTH, PATH_DASHBOARD } from '@/routes';
-import { Surface } from '@/components';
-import classes from './page.module.css';
 import { useForm } from '@mantine/form';
+// import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const LINK_PROPS: TextProps = {
-  className: classes.link,
-};
+import { Surface } from '@/components';
+import { 
+  // PATH_AUTH, 
+  PATH_DASHBOARD } from '@/routes';
+
+import classes from './page.module.css';
+
+
+// const LINK_PROPS: TextProps = {
+//   className: classes.link,
+// };
 
 function Page() {
   const { push } = useRouter();
   const form = useForm({
-    initialValues: { email: 'demo@email.com', password: 'Demo@123' },
+    initialValues: { email: 'demo@iris.dz', password: 'Iris@123' },
 
     // functions will be used to validate values at corresponding key
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Email invalide'),
       password: (value) =>
         value && value?.length < 6
-          ? 'Password must include at least 6 characters'
+          ? 'Le mot de passe doit contenir au moins 6 caractères'
           : null,
     },
   });
@@ -41,14 +46,14 @@ function Page() {
   return (
     <>
       <>
-        <title>Sign in | DesignSparx</title>
+        <title>Se connecter | Iris</title>
         <meta
           name="description"
-          content="Explore our versatile dashboard website template featuring a stunning array of themes and meticulously crafted components. Elevate your web project with seamless integration, customizable themes, and a rich variety of components for a dynamic user experience. Effortlessly bring your data to life with our intuitive dashboard template, designed to streamline development and captivate users. Discover endless possibilities in design and functionality today!"
+          content="Se connecter au dashboard de iris sat"
         />
       </>
-      <Title ta="center">Welcome back!</Title>
-      <Text ta="center">Sign in to your account to continue</Text>
+      <Title ta="center">Bienvenue à nouveau!</Title>
+      <Text ta="center">Connectez-vous à votre compte pour continuer</Text>
 
       <Surface component={Paper} className={classes.card}>
         <form
@@ -58,20 +63,21 @@ function Page() {
         >
           <TextInput
             label="Email"
-            placeholder="you@mantine.dev"
+            placeholder="enail@iris.dz"
             required
             classNames={{ label: classes.label }}
             {...form.getInputProps('email')}
           />
           <PasswordInput
-            label="Password"
-            placeholder="Your password"
+            label="Mot de passe"
+            placeholder="Entrer votre mot de passe"
             required
             mt="md"
             classNames={{ label: classes.label }}
             {...form.getInputProps('password')}
           />
-          <Group justify="space-between" mt="lg">
+          {/* uncomment-this if you want to integrate change password */}
+          {/* <Group justify="space-between" mt="lg">
             <Checkbox
               label="Remember me"
               classNames={{ label: classes.label }}
@@ -84,12 +90,17 @@ function Page() {
             >
               Forgot password?
             </Text>
-          </Group>
-          <Button fullWidth mt="xl" type="submit">
-            Sign in
+          </Group> */}
+          <Button
+            color="ocean-orange"
+            fullWidth mt="xl" 
+            type="submit"
+            >
+            Se connecter
           </Button>
         </form>
-        <Center mt="md">
+        {/* uncomment-this if you want to integrate signup */}
+        {/* <Center mt="md">
           <Text
             fz="sm"
             ta="center"
@@ -99,7 +110,7 @@ function Page() {
           >
             Do not have an account yet? Create account
           </Text>
-        </Center>
+        </Center> */}
       </Surface>
     </>
   );

@@ -1,8 +1,9 @@
 'use client';
 
+import React, { ReactNode } from 'react';
+
 import { Center, Stack } from '@mantine/core';
 import Image from 'next/image';
-import React, { ReactNode } from 'react';
 
 type AuthProps = {
   children: ReactNode;
@@ -19,7 +20,7 @@ function SignInLayout({ children }: AuthProps) {
       <Stack>
         <Center>
           <Image
-            src="/logo-no-background.png"
+            src="/logo-iris.png"
             alt="DesignSparx logo"
             width={96}
             height={96}
