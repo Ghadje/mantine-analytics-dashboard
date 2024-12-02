@@ -3,6 +3,9 @@
   color: var(--mantine-color-white);
   padding: calc(var(--mantine-spacing-xl) * 4);
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   @media (max-width: $mantine-breakpoint-sm) {
     padding-top: var(--mantine-spacing-xl);

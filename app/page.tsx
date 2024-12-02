@@ -67,8 +67,8 @@ export default function Home() {
               <Image
                 src={
                   colorScheme === 'dark'
-                    ? '/thumbnail-img.jpg'
-                    : '/thumbnail-img-b.jpg'
+                    ? '/bg.png'
+                    : '/bg.png'
                 }
                 alt="/"
                 radius="md"
