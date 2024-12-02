@@ -4,12 +4,11 @@ import {
   Container,
   Grid,
   PaperProps,
-  rem,
   SimpleGrid,
   Skeleton,
   Stack,
-  useMantineTheme,
 } from '@mantine/core';
+
 import {
   ErrorAlert,
   LanguageTable,
@@ -20,9 +19,10 @@ import {
   StatsCard,
   TrafficTable,
 } from '@/components';
+import ProtectedRoute from '@/components/ProtectedRoute';
 import { useFetchData } from '@/hooks';
 
-const PRIMARY_COL_HEIGHT = rem(300);
+
 
 const PAPER_PROPS: PaperProps = {
   p: 'md',
@@ -32,8 +32,6 @@ const PAPER_PROPS: PaperProps = {
 };
 
 function Page() {
-  const theme = useMantineTheme();
-  const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`;
   const {
     data: statsData,
     error: statsError,
@@ -51,7 +49,7 @@ function Page() {
   } = useFetchData('/mocks/Traffic.json');
 
   return (
-    <>
+    <ProtectedRoute>
       <>
         <title>Analytics Dashboard | DesignSparx</title>
         <meta
@@ -115,7 +113,7 @@ function Page() {
           </Grid>
         </Stack>
       </Container>
-    </>
+    </ProtectedRoute>
   );
 }
 

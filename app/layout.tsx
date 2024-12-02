@@ -6,6 +6,7 @@ import { Notifications } from '@mantine/notifications';
 import { Open_Sans } from 'next/font/google';
 
 import { myTheme } from '@/theme';
+
 import '@mantine/core/styles.css';
 import '@mantine/dates/styles.css';
 import '@mantine/tiptap/styles.css';
@@ -13,6 +14,7 @@ import '@mantine/carousel/styles.css';
 import '@mantine/notifications/styles.css';
 import 'mantine-datatable/styles.layer.css';
 import './globals.css';
+import Provider from './provider';
 
 // If loading a variable font, you don't need to specify the font weight
 const openSans = Open_Sans({
@@ -64,7 +66,11 @@ export default function RootLayout({
       <body>
         <MantineProvider theme={myTheme} defaultColorScheme="light">
           <Notifications position="bottom-right" zIndex={1000} />
-          <ModalsProvider>{children}</ModalsProvider>
+          <ModalsProvider>
+            <Provider>
+              {children}
+            </Provider>
+            </ModalsProvider>
         </MantineProvider>
       </body>
     </html>

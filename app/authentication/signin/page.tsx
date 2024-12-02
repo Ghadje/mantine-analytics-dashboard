@@ -15,11 +15,13 @@ import {
 import { useForm } from '@mantine/form';
 // import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 import { Surface } from '@/components';
 import { 
   // PATH_AUTH, 
-  PATH_DASHBOARD } from '@/routes';
+  PATH_DASHBOARD,
+} from '@/routes';
 
 import classes from './page.module.css';
 
@@ -29,7 +31,7 @@ import classes from './page.module.css';
 // };
 
 function Page() {
-  const { push } = useRouter();
+  const { replace } = useRouter();
   const form = useForm({
     initialValues: { email: 'demo@iris.dz', password: 'Iris@123' },
 
@@ -42,6 +44,21 @@ function Page() {
           : null,
     },
   });
+
+  const handleLogin = async (values: { email: string; password: string }) => {
+    const result = await signIn('credentials', {
+      redirect: false,
+      email: values.email,
+      password: values.password,
+    });
+
+    if (result?.ok) {
+      replace(PATH_DASHBOARD.default);
+    } else {
+      console.error('Login failed:', result?.error);
+    }
+  };
+
 
   return (
     <>
@@ -57,13 +74,11 @@ function Page() {
 
       <Surface component={Paper} className={classes.card}>
         <form
-          onSubmit={form.onSubmit(() => {
-            push(PATH_DASHBOARD.default);
-          })}
+          onSubmit={form.onSubmit(handleLogin)}
         >
           <TextInput
             label="Email"
-            placeholder="enail@iris.dz"
+            placeholder="email@iris.dz"
             required
             classNames={{ label: classes.label }}
             {...form.getInputProps('email')}

@@ -1,4 +1,5 @@
 import { ActionIcon, Box, Flex, Group, ScrollArea, Text } from '@mantine/core';
+import { useMediaQuery } from '@mantine/hooks';
 import {
   IconBook2,
   IconBrandAuth0,
@@ -23,7 +24,10 @@ import {
   IconUserShield,
   IconX,
 } from '@tabler/icons-react';
+
 import { Logo, UserProfileButton } from '@/components';
+import { LinksGroup } from '@/components/Navigation/Links/Links';
+import UserProfileData from '@/public/mocks/UserProfile.json';
 import {
   PATH_ABOUT,
   PATH_APPS,
@@ -32,10 +36,9 @@ import {
   PATH_DOCS,
   PATH_PAGES,
 } from '@/routes';
-import UserProfileData from '@/public/mocks/UserProfile.json';
-import { useMediaQuery } from '@mantine/hooks';
+
 import classes from './Navigation.module.css';
-import { LinksGroup } from '@/components/Navigation/Links/Links';
+
 
 const mockdata = [
   {

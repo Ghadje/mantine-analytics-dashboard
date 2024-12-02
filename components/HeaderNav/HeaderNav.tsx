@@ -31,6 +31,7 @@ import {
 import { LanguagePicker } from '@/components';
 import { upperFirst, useMediaQuery } from '@mantine/hooks';
 import { showNotification } from '@mantine/notifications';
+import { signOut } from 'next-auth/react';
 
 const ICON_SIZE = 20;
 
@@ -250,6 +251,18 @@ const HeaderNav = (props: HeaderNavProps) => {
     });
   };
 
+  const handleLogout = async () => {
+    // Perform logout logic here (e.g., clearing tokens, sessions, etc.)
+    try {
+      await signOut({ callbackUrl: '/' }); // Redirect after sign-out (next-auth example)
+      // For custom logic:
+      // localStorage.removeItem('token'); // Remove token from local storage
+      // router.push('/auth/signin'); // Redirect to sign-in page
+    } catch (error) {
+      console.error('Error logging out:', error);
+    }
+  };
+
   return (
     <Group justify="space-between">
       <Group gap={0}>
@@ -325,8 +338,8 @@ const HeaderNav = (props: HeaderNavProps) => {
             </Menu.Item>
           </Menu.Dropdown>
         </Menu>
-        <Tooltip label="Logout">
-          <ActionIcon>
+        <Tooltip label="Déconnexion">
+          <ActionIcon onClick={handleLogout} aria-label="Logout">
             <IconPower size={ICON_SIZE} />
           </ActionIcon>
         </Tooltip>

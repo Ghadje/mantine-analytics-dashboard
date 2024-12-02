@@ -1,21 +1,55 @@
-import Auth0 from 'next-auth/providers/auth0';
-import { NextAuthOptions } from 'next-auth';
 
-const {
-  AUTH0_CLIENT_ID = '',
-  AUTH0_CLIENT_SECRET = '',
-  AUTH0_DOMAIN = '',
-  AUTH0_NEXT_SECRET = '',
-  AUTH0_ISSUER_BASE_URL = '',
-} = process.env;
+import { NextAuthOptions } from "next-auth";
+import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions: NextAuthOptions = {
-  secret: AUTH0_NEXT_SECRET,
+import { api } from "./api";
+
+export const AUTH_SECRET = "TII63t4e5900T/3cSupOTGMZrzuXRzyCVdDOCe4oRjs=";
+
+export const authOptions : NextAuthOptions = {
+  secret: AUTH_SECRET,
   providers: [
-    Auth0({
-      clientId: AUTH0_CLIENT_ID,
-      clientSecret: AUTH0_CLIENT_SECRET,
-      issuer: AUTH0_ISSUER_BASE_URL,
-    }),
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        email: { label: 'Email', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
+      
+      async authorize(credentials) {
+        try {
+          const res = await api.post('api/user/login', {
+            email: credentials?.email,
+            password: credentials?.password,
+            
+          });
+      
+          const resData = await res;
+          if (res.data && resData && resData.data) {
+            return resData.data;
+          } else {
+            console.error('Authorization failed:', resData);
+            return null;
+          }
+        } catch (error) {
+          console.error('Authorization error:', error);
+          return null;
+        }
+      }
+    })
   ],
+  pages: {
+    signIn: '/signin'
+  },
+  session: { strategy: "jwt" },
+  callbacks: {
+    async jwt({token, user}){
+      return {...token, ...user}
+    },
+    async session ({ session, token }) {
+      session.user = token as any ;
+      return session;
+    }
+  }
+  
 };
