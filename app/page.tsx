@@ -48,7 +48,7 @@ export default function Home() {
                   <Text component="span" inherit className={classes.highlight}>
                   Iris{' '}
                   </Text>
-                  , pour les comercials.
+                  , pour les achats.
                 </Title>
                 <Group my="lg">
                   <Button
