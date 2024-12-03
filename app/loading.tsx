@@ -1,11 +1,11 @@
-import { Center, Loader, Text, Stack } from '@mantine/core';
+import { Center, Loader, Stack, Text } from '@mantine/core';
 
 export default function Loading() {
   return (
     <Center pt={80}>
       <Stack align="center">
-        <Loader />
-        <Text>Hang in there...</Text>
+        <Loader color='ocean-orange'/>
+        <Text>Veuillez patienter...</Text>
       </Stack>
     </Center>
   );
